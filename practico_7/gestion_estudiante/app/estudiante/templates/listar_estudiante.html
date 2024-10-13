@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %} Lista estudiantes {% endblock %}
+{% block content %}
+<section>
+    <form method="GET" action="/estudiante/mayores_de">
+        <label for="nombre">Filtrar por edad</label>
+        <input type="number" id="estudiante/mayores_de" name="edad">
+        <button type="submit">Buscar</button>
+    </form>
+</section>
+<section>
+    <h1>Lista de Estudiantes</h1>
+    <ul>
+        {% for estudiantes in estudiante %}
+        <li>{{ estudiantes.nombre }} {{ estudiantes.apellido }} - Edad: {{ estudiantes.edad}}</li>
+        <li>
+            Curso: {{ estudiantes.curso.nombre }} -  Cantidad de horas: {{estudiantes.curso.cantidad_horas}}
+            - Nota: {{ estudiantes.nota_curso}}
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+{% endblock %}

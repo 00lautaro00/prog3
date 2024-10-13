@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %} Lista estudiantes {% endblock %}
+{% block content %}
+
+<section>
+    <h1>Lista de Cursos</h1>
+    <ul>
+        {% for cursos in curso %}
+        <li> Nombre: {{ cursos.nombre }} - Cantidad de Horas:  {{ cursos.cantidad_horas }} <a href="{{cursos.id}}">Ver</a></li>
+        
+        {% endfor %}
+    </ul>
+</section>
+{% endblock %}
